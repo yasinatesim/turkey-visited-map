@@ -1,0 +1,28 @@
+.map {
+  fill: #f1e4c2;
+
+  g {
+    cursor: pointer;
+  }
+
+  path {
+    stroke: #333;
+    stroke-opacity: 0.5;
+  }
+
+  .city:hover path {
+    fill: darken(#f1e4c2, 20%);
+  }
+
+  :global(.active) {
+    path {
+      fill: #ff0000;
+    }
+  }
+
+  text {
+    fill: #333;
+    pointer-events: none;
+    font-size: 12px;
+  }
+}
