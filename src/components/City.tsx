@@ -9,9 +9,10 @@ type Props = {
   y: number;
   paths: Array<string>;
   className: string;
+  onClick: () => void;
 };
 
-const City: React.FC<Props> = ({ id, name, active, x, y, paths, className }) => {
+const City: React.FC<Props> = ({ id, name, active, x, y, paths, className, onClick }) => {
   return (
     <g
       name={name}
@@ -19,6 +20,7 @@ const City: React.FC<Props> = ({ id, name, active, x, y, paths, className }) => 
       className={cx(className, {
         active: active,
       })}
+      onClick={onClick}
     >
       {paths.map((item, key) => (
         <path d={item} key={`${name}_${key}`} />
