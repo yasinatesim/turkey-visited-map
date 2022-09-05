@@ -18,6 +18,10 @@
     path {
       fill: #00d09c;
     }
+
+    &:hover path {
+      fill: darken(#00d09c, 5%);
+    }
   }
 
   text {

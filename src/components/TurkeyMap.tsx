@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import cities from "../data/cities.json";
 
 import City from "./City";
 
+import useLocalStorage from "../hooks/useLocalStorage";
+
 import styles from "./TurkeyMap.module.scss";
 
 const TurkeyMap = () => {
-  const [activeCities, setActiveCities] = useState<Array<any>>([]);
+  const { getItem, setItem, removeItem } = useLocalStorage("cities");
+
+  const [activeCities, setActiveCities] = useState<Array<string>>([]);
 
   const handleCityClick = (id: string) => {
     if (activeCities.includes(id)) {
@@ -15,6 +20,22 @@ const TurkeyMap = () => {
       setActiveCities([...activeCities, id]);
     }
   };
+
+  useEffect(() => {
+    const activeCities = getItem();
+    if (activeCities) {
+      setActiveCities(activeCities);
+    }
+
+  }, []);
+
+  useEffect(() => {
+    if (activeCities.length > 0) {
+      setItem(activeCities);
+    } else {
+      removeItem();
+    }
+  }, [activeCities]);
 
   return (
     <div>
@@ -41,9 +62,11 @@ const TurkeyMap = () => {
       </svg>
 
       {/* city count */}
-      <div className={styles.cityCount}>
-        <span>Toplan gezilen il sayısı: {activeCities.length}</span>
-      </div>
+      {activeCities.length > 0 && (
+        <div className={styles.cityCount}>
+          <span>Toplan gezilen il sayısı: {activeCities.length}</span>
+        </div>
+      )}
     </div>
   );
 };
