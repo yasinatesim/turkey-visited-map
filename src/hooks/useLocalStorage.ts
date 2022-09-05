@@ -1,5 +1,3 @@
-
-
 const useLocalStorage = (key: string) => {
   const getItem = () => {
     const storage = localStorage.getItem(key);
