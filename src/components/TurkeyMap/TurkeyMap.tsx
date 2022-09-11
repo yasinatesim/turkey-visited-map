@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 
-import cities from "../data/cities.json";
+import cities from "../../data/cities.json";
 
-import City from "./City";
+import City from "../City/City";
 
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./TurkeyMap.module.scss";
 
-const TurkeyMap = () => {
+type Props = {
+  defaultActiveCities?: Array<string>;
+};
+
+const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
   const { getItem, setItem, removeItem } = useLocalStorage("cities");
 
-  const [activeCities, setActiveCities] = useState<Array<string>>([]);
+  const [activeCities, setActiveCities] = useState<Array<string>>(
+    defaultActiveCities || []
+  );
 
   const handleCityClick = (id: string) => {
     if (activeCities.includes(id)) {
@@ -22,18 +28,22 @@ const TurkeyMap = () => {
   };
 
   useEffect(() => {
-    const activeCities = getItem();
-    if (activeCities) {
-      setActiveCities(activeCities);
+    console.log("defaultActiveCities:", defaultActiveCities)
+    if (!defaultActiveCities) {
+      const activeCities = getItem();
+      if (activeCities) {
+        setActiveCities(activeCities);
+      }
     }
-
   }, []);
 
   useEffect(() => {
-    if (activeCities.length > 0) {
-      setItem(activeCities);
-    } else {
-      removeItem();
+    if (!defaultActiveCities) {
+      if (activeCities.length > 0) {
+        setItem(activeCities);
+      } else {
+        removeItem();
+      }
     }
   }, [activeCities]);
 

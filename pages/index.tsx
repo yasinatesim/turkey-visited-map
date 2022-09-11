@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import CopyLink from "../src/components/CopyLink";
 import TurkeyMap from "../src/components/TurkeyMap";
-import { getProfileData } from "../src/firebase/getProfileData";
 
-const Home: NextPage = ({data}) => {
-  console.log("data:", data)
+const Home: NextPage = () => {
   return (
     <>
       <Head>
@@ -14,16 +13,11 @@ const Home: NextPage = ({data}) => {
       </Head>
 
       <div className="container">
+        <CopyLink />
         <TurkeyMap />
       </div>
     </>
   );
 };
-
-export const getServerSideProps = async () => {
-  const profile = await getProfileData('yasin')
-
-  return { props: { data: { profile } } }
-}
 
 export default Home;
