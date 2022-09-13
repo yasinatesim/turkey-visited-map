@@ -1,7 +1,7 @@
 .map {
   fill: #f1e4c2;
 
-  g {
+  &.active g {
     cursor: pointer;
   }
 

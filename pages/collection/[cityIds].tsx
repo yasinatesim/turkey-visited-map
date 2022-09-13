@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import CopyLink from "../../src/components/CopyLink";
 import TurkeyMap from "../../src/components/TurkeyMap";
 
 type Props = {
@@ -18,7 +17,6 @@ const CollectionDetail: React.FC<Props> = ({ cityIdList }) => {
       </Head>
 
       <div className="container">
-        <CopyLink />
         <TurkeyMap defaultActiveCities={cityIdList} />
       </div>
     </>

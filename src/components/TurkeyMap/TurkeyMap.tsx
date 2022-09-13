@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import cx from "classnames";
 
 import cities from "../../data/cities.json";
 
 import City from "../City/City";
 
+import { useAppState } from "../../store/App";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./TurkeyMap.module.scss";
@@ -15,25 +17,26 @@ type Props = {
 const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
   const { getItem, setItem, removeItem } = useLocalStorage("cities");
 
-  const [activeCities, setActiveCities] = useState<Array<string>>(
-    defaultActiveCities || []
-  );
+  const { activeCities, setActiveCities } = useAppState();
 
   const handleCityClick = (id: string) => {
-    if (activeCities.includes(id)) {
-      setActiveCities(activeCities.filter((item) => item !== id));
-    } else {
-      setActiveCities([...activeCities, id]);
+    if (!defaultActiveCities) {
+      if (activeCities.includes(id)) {
+        setActiveCities(activeCities.filter((item) => item !== id));
+      } else {
+        setActiveCities([...activeCities, id]);
+      }
     }
   };
 
   useEffect(() => {
-    console.log("defaultActiveCities:", defaultActiveCities)
     if (!defaultActiveCities) {
       const activeCities = getItem();
       if (activeCities) {
         setActiveCities(activeCities);
       }
+    } else {
+      setActiveCities(defaultActiveCities);
     }
   }, []);
 
@@ -52,17 +55,15 @@ const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
       <svg
         viewBox="0 0 1007.478 527.323"
         xmlns="http://www.w3.org/2000/svg"
-        className={styles.map}
+        className={cx(styles.map, {
+          [styles.active]: !defaultActiveCities,
+        })}
       >
         <g>
           {cities.map((city) => (
             <City
+              {...city}
               key={city.id}
-              id={city.id}
-              name={city.name}
-              x={city.x}
-              y={city.y}
-              paths={city.paths}
               className={styles.city}
               active={activeCities?.includes(city.id)}
               onClick={() => handleCityClick(city.id)}
@@ -72,11 +73,11 @@ const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
       </svg>
 
       {/* city count */}
-      {activeCities.length > 0 && (
+      {/* {activeCities && activeCities.length > 0 && (
         <div className={styles.cityCount}>
           <span>Toplan gezilen il sayısı: {activeCities.length}</span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
