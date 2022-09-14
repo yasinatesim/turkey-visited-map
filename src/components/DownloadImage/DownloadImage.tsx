@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { IconDownload } from '@/assets/icons';
 
 import styles from './DownloadImage.module.scss';

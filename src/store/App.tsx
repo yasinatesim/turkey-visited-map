@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 type ContextProps = {
-  activeCities: string[];
-  setActiveCities: (cities: string[]) => void;
+  activeCities: Array<string>;
+  setActiveCities: () => void;
 };
 
 const AppStateContext = createContext<ContextProps>({

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import CopyLink from '@/components/CopyLink';
 import DownloadImage from '@/components/DownloadImage';
 

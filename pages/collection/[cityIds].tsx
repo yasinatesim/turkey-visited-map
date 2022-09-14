@@ -1,4 +1,5 @@
-import type { NextPage } from 'next';
+import React from 'react';
+
 import Head from 'next/head';
 
 import TurkeyMap from '@/components/TurkeyMap';
@@ -7,7 +8,7 @@ type Props = {
   cityIdList: string[];
 };
 
-const CollectionDetail: React.FC<NextPage & Props> = ({ cityIdList }) => {
+const CollectionDetail: React.FC<Props> = ({ cityIdList }) => {
   return (
     <>
       <Head>
