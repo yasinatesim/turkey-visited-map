@@ -67,11 +67,11 @@ This project is a mark visited places app for Turkey map. I developed this tool 
 
 - You can download the map as an image. You can use to &quot;Resmi indir&quot; button on Home page
 
-- **Collection Page**
+**Collection Page**
 
-1 - Click to a few cities
-2- Press the &quot;Linki kopyala&quot; button
-3- Paste it the browser and enter the copied page as you can see, this page is a city collection page and you now have a link. You can share this link with your friends 😎
+1. Click to a few cities
+2. Press the &quot;Linki kopyala&quot; button
+3. Paste it the browser and enter the copied page as you can see, this page is a city collection page and you now have a link. You can share this link with your friends 😎
 
 ## Getting Started
 
