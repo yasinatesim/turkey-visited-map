@@ -9,10 +9,10 @@ import cities from '@/data/cities.json';
 import useLocalStorage from '@/hooks/useLocalStorage';
 
 import { useAppState } from '@/store/App';
+import styles from './TurkeyMap.module.scss';
 
 import City from './components/City/City';
 
-import styles from './TurkeyMap.module.scss';
 
 type Props = {
   defaultActiveCities?: Array<string>;
