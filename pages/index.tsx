@@ -1,20 +1,17 @@
-import type { NextPage } from "next";
+import React, { createRef } from 'react';
 
-import * as htmlToImage from "html-to-image";
-import Head from "next/head";
-import React, { createRef } from "react";
-import CopyLink from "../src/components/CopyLink";
-import DownloadImage from "../src/components/DownloadImage";
-import TurkeyMap from "../src/components/TurkeyMap";
-import Header from "../src/components/Header";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+
+import * as htmlToImage from 'html-to-image';
+
+import Header from '@/components/Header';
+import TurkeyMap from '@/components/TurkeyMap';
 
 const Home: NextPage = () => {
   const ref = createRef<HTMLDivElement>();
 
-  const createFileName = ({ extension, prefix }: {
-    extension: string;
-    prefix: string;
-  }) => {
+  const createFileName = ({ extension, prefix }: { extension: string; prefix: string }) => {
     return `${prefix}-${Math.random().toString(36).slice(2)}.${extension}`;
   };
 
@@ -26,8 +23,8 @@ const Home: NextPage = () => {
   const handleClickDownload = async () => {
     const image = await takeScreenShot(ref.current);
 
-    const downloadLink = document.createElement("a");
-    const fileName = createFileName({ extension: "jpg", prefix: "turkeymap" });
+    const downloadLink = document.createElement('a');
+    const fileName = createFileName({ extension: 'jpg', prefix: 'turkeymap' });
 
     downloadLink.href = image;
     downloadLink.download = fileName;

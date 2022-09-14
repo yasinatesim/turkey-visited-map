@@ -1,17 +1,17 @@
-import useCopyToClipboard from "../../hooks/useCopyToClipboard";
-import { IconLink } from "../../icons";
-import { useAppState } from "../../store/App";
+import { IconLink } from '@/assets/icons';
 
-import styles from "./CopyLink.module.scss";
+import useCopyToClipboard from '@/hooks/useCopyToClipboard';
+
+import { useAppState } from '@/store/App';
+
+import styles from './CopyLink.module.scss';
 
 const CopyLink = () => {
   const { activeCities } = useAppState();
   const { copyToClipboard } = useCopyToClipboard();
 
   const handleCopyClick = () => {
-    copyToClipboard(
-      `${window.location.href}/collection/${activeCities.join(",")}`
-    );
+    copyToClipboard(`${window.location.href}/collection/${activeCities.join(',')}`);
   };
 
   return (

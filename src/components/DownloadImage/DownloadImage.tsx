@@ -1,12 +1,12 @@
-import { IconDownload } from "../../icons";
+import { IconDownload } from '@/assets/icons';
 
-import styles from "./DownloadImage.module.scss";
+import styles from './DownloadImage.module.scss';
 
 type Props = {
-  onClick: Function
+  onClick: Function;
 };
 
-const DownloadImage:React.FC<Props> = ({ onClick }) => {
+const DownloadImage: React.FC<Props> = ({ onClick }) => {
   return (
     <div className={styles.container} onClick={(value) => onClick(value)}>
       <IconDownload />

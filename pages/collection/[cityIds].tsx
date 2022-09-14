@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
-import TurkeyMap from "../../src/components/TurkeyMap";
+import TurkeyMap from '@/components/TurkeyMap';
 
 type Props = {
   cityIdList: string[];
 };
 
-const CollectionDetail: React.FC<Props> = ({ cityIdList }) => {
+const CollectionDetail: React.FC<NextPage & Props> = ({ cityIdList }) => {
   return (
     <>
       <Head>
@@ -23,10 +23,8 @@ const CollectionDetail: React.FC<Props> = ({ cityIdList }) => {
   );
 };
 
-export const getServerSideProps = ({ params }: {
-  params: { cityIds: string };
-}) => {
-  return { props: { cityIdList: params.cityIds.split(",") } };
+export const getServerSideProps = ({ params }: { params: { cityIds: string } }) => {
+  return { props: { cityIdList: params.cityIds.split(',') } };
 };
 
 export default CollectionDetail;

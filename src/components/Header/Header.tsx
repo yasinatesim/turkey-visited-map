@@ -1,7 +1,7 @@
-import CopyLink from "../CopyLink";
-import DownloadImage from "../DownloadImage";
+import CopyLink from '@/components/CopyLink';
+import DownloadImage from '@/components/DownloadImage';
 
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 
 type Props = {
   handleClickDownload: () => void;
