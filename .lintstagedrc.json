@@ -1,3 +1,0 @@
-{
-  "**/*.ts?x": ["yarn lint", "prettier --check", "tsc"]
-}

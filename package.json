@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "format": "prettier --check --write --ignore-unknown .",
+    "format": "prettier --write --ignore-unknown .",
     "prepare": "husky install"
   },
   "dependencies": {
