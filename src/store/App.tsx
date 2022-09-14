@@ -1,14 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from 'react';
 
-type ContextProps = {
-  activeCities: Array<string>;
-  setActiveCities: () => void;
-};
+type ContextProps =  any;
 
-const AppStateContext = createContext<ContextProps>({
-  activeCities: [],
-  setActiveCities: () => {},
-});
+const AppStateContext = createContext<ContextProps>({});
 
 type AppProviderProps = {
   children: ReactNode;
@@ -17,16 +11,12 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
   const [activeCities, setActiveCities] = useState<Array<string>>([]);
 
-  const state = {
+  const state: any = {
     activeCities,
     setActiveCities,
   };
 
-  return (
-    <AppStateContext.Provider value={state}>
-      {children}
-    </AppStateContext.Provider>
-  );
+  return <AppStateContext.Provider value={state}>{children}</AppStateContext.Provider>;
 };
 
 export const useAppState = () => useContext(AppStateContext);

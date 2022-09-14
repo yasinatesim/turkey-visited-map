@@ -1,1 +1,1 @@
-export { default } from "./TurkeyMap";
+export { default } from './TurkeyMap';

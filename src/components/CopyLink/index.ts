@@ -1,1 +1,1 @@
-export { default } from "./CopyLink";
+export { default } from './CopyLink';

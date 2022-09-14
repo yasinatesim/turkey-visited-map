@@ -28,7 +28,7 @@ const TurkeyMap: React.ForwardRefExoticComponent<React.PropsWithoutRef<Props> & 
     const handleCityClick = (id: string) => {
       if (!defaultActiveCities) {
         if (activeCities.includes(id)) {
-          setActiveCities(activeCities.filter((item) => item !== id));
+          setActiveCities(activeCities.filter((item: string) => item !== id));
         } else {
           setActiveCities([...activeCities, id]);
         }

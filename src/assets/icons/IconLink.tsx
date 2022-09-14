@@ -1,18 +1,11 @@
-import React, { SVGProps } from "react";
+import React, { SVGProps } from 'react';
 
 type Props = {
   className?: string;
 } & SVGProps<SVGSVGElement>;
 
 const IconLink: React.FC<Props> = ({ className, ...props }) => (
-  <svg
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    height="1em"
-    width="1em"
-    className={className}
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" className={className} {...props}>
     <path
       fill="none"
       stroke="currentColor"

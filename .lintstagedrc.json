@@ -1,7 +1,3 @@
 {
-  "**/*.ts?x" : [
-    "yarn lint",
-    "prettier --check",
-    "tsc"
-  ]
+  "**/*.ts?x": ["yarn lint", "prettier --check", "tsc"]
 }
