@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
-type ContextProps =  any;
+type ContextProps = any;
 
 const AppStateContext = createContext<ContextProps>({});
 
