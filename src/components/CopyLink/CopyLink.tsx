@@ -1,14 +1,17 @@
+import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 import { IconLink } from "../../icons";
 import { useAppState } from "../../store/App";
 
 import styles from "./CopyLink.module.scss";
 
-const TurkeyMap = () => {
-
+const CopyLink = () => {
   const { activeCities } = useAppState();
+  const { copyToClipboard } = useCopyToClipboard();
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(window.location.href + '/collection/' + activeCities.join(","));
+    copyToClipboard(
+      `${window.location.href}/collection/${activeCities.join(",")}`
+    );
   };
 
   return (
@@ -19,4 +22,4 @@ const TurkeyMap = () => {
   );
 };
 
-export default TurkeyMap;
+export default CopyLink;

@@ -1,9 +1,39 @@
 import type { NextPage } from "next";
+
+import * as htmlToImage from "html-to-image";
 import Head from "next/head";
+import React, { createRef } from "react";
 import CopyLink from "../src/components/CopyLink";
+import DownloadImage from "../src/components/DownloadImage";
 import TurkeyMap from "../src/components/TurkeyMap";
+import Header from "../src/components/Header";
 
 const Home: NextPage = () => {
+  const ref = createRef<HTMLDivElement>();
+
+  const createFileName = ({ extension, prefix }: {
+    extension: string;
+    prefix: string;
+  }) => {
+    return `${prefix}-${Math.random().toString(36).slice(2)}.${extension}`;
+  };
+
+  const takeScreenShot = async (node: any) => {
+    const dataURI = await htmlToImage.toJpeg(node);
+    return dataURI;
+  };
+
+  const handleClickDownload = async () => {
+    const image = await takeScreenShot(ref.current);
+
+    const downloadLink = document.createElement("a");
+    const fileName = createFileName({ extension: "jpg", prefix: "turkeymap" });
+
+    downloadLink.href = image;
+    downloadLink.download = fileName;
+    downloadLink.click();
+  };
+
   return (
     <>
       <Head>
@@ -13,8 +43,10 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="container">
-        <CopyLink />
-        <TurkeyMap />
+        <Header handleClickDownload={handleClickDownload} />
+        <div>
+          <TurkeyMap ref={ref} />
+        </div>
       </div>
     </>
   );

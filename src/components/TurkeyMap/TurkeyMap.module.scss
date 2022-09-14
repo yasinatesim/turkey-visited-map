@@ -1,3 +1,8 @@
+.wrapper {
+  background: #fff;
+  padding: 2rem;
+}
+
 .map {
   fill: #f1e4c2;
 
@@ -28,5 +33,27 @@
     fill: #333;
     pointer-events: none;
     font-size: 12px;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    margin-right: 4px;
+
+    svg {
+      margin-left: 4px;
+    }
   }
 }

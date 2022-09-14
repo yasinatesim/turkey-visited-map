@@ -1,6 +1,14 @@
 import { useContext, createContext, ReactNode, useState } from "react";
 
-const AppStateContext: any = createContext({});
+type ContextProps = {
+  activeCities: string[];
+  setActiveCities: (cities: string[]) => void;
+};
+
+const AppStateContext = createContext<ContextProps>({
+  activeCities: [],
+  setActiveCities: () => {},
+});
 
 type AppProviderProps = {
   children: ReactNode;
@@ -13,7 +21,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     activeCities,
     setActiveCities,
   };
-
 
   return (
     <AppStateContext.Provider value={state}>

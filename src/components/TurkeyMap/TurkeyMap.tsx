@@ -1,20 +1,23 @@
-import { useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 import cx from "classnames";
 
 import cities from "../../data/cities.json";
 
-import City from "../City/City";
+import City from "./components/City/City";
 
 import { useAppState } from "../../store/App";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./TurkeyMap.module.scss";
+import { IconGithub } from "../../icons";
 
 type Props = {
   defaultActiveCities?: Array<string>;
 };
 
-const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
+const TurkeyMap: React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<Props> & React.RefAttributes<HTMLDivElement>
+> = forwardRef(({ defaultActiveCities }, ref) => {
   const { getItem, setItem, removeItem } = useLocalStorage("cities");
 
   const { activeCities, setActiveCities } = useAppState();
@@ -51,7 +54,7 @@ const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
   }, [activeCities]);
 
   return (
-    <div>
+    <div ref={ref} className={styles.wrapper}>
       <svg
         viewBox="0 0 1007.478 527.323"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,14 +75,24 @@ const TurkeyMap: React.FC<Props> = ({ defaultActiveCities }) => {
         </g>
       </svg>
 
-      {/* city count */}
-      {/* {activeCities && activeCities.length > 0 && (
-        <div className={styles.cityCount}>
-          <span>Toplan gezilen il sayısı: {activeCities.length}</span>
+      <div className={styles.footer}>
+        {/* city count */}
+        {activeCities && activeCities.length > 0 && (
+          <div className={styles.cityCount}>
+            <span>Toplan gezilen il sayısı: {activeCities.length}</span>
+          </div>
+        )}
+
+        <div className={styles.info}>
+          <span>This file was generated with by <IconGithub /></span>
+          <span>/yasinatesim/turkey-visited-map</span>
+          🥸
         </div>
-      )} */}
+      </div>
     </div>
   );
-};
+});
+
+TurkeyMap.displayName = "TurkeyMap";
 
 export default TurkeyMap;
