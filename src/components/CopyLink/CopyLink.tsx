@@ -17,7 +17,7 @@ const CopyLink = () => {
   return (
     <div className={styles.container} onClick={handleCopyClick}>
       <IconLink />
-      <div>Linki Kopyala</div>
+      <div>Linki kopyala</div>
     </div>
   );
 };
