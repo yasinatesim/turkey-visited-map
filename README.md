@@ -10,7 +10,6 @@ Turkey Visited Map
 
 <p  align="center">This project is a mark visited places app for Turkey</p>
 
-
   <p align="center">
 · <a  href="https://turkey-visited-map.yasinatesim.vercel.app/">View Demo</a>
   </p>
@@ -20,7 +19,6 @@ Turkey Visited Map
 This project is a mark visited places app for Turkey map. I developed this tool because, I need to mark on the map.
 
 ### 📚Tech Stack
-
 
 <table>
   <tr>
@@ -61,7 +59,6 @@ This project is a mark visited places app for Turkey map. I developed this tool 
   </tr>
 </table>
 
-
 ## 🧐 What's inside?
 
 ### Features
@@ -76,41 +73,29 @@ This project is a mark visited places app for Turkey map. I developed this tool 
 2- Press the &quot;Linki kopyala&quot; button
 3- Paste it the browser and enter the copied page as you can see, this page is a city collection page and you now have a link. You can share this link with your friends 😎
 
-
-
 ## Getting Started
 
 ### 📦 Prerequisites
-
 
 - Node (v12.0.0+)
 
 - Npm (v6.00+)
 
-
 ### ⚙️ How To Use
 
-
- 1. Clone this repository
+1.  Clone this repository
 
 ```bash
 git clone https://github.com/yasinatesim/turkey-visited-map.git
 ```
 
-
-
 2. Install the project dependencies
-
 
 ```bash
 yarn install
 ```
 
-
-
 **For Development**
-
-
 
 ```bash
 yarn dev
@@ -118,43 +103,28 @@ yarn dev
 
 App is running on [http://localhost:3000](http://localhost:3000)
 
-
-
 **For Production Build &amp; Build Start**
-
-
 
 ```bash
 yarn build
 ```
 
-
 and
-
-
-
-
 
 ```bash
 yarn start
 ```
 
-
-
-
 **For Lint &amp; Format**
-
-
 
 ```bash
 yarn lint
 yarn format
 ```
 
-
 ## 🔑 License
 
-* Copyright © 2022 - MIT License.
+- Copyright © 2022 - MIT License.
 
 See [LICENSE](https://github.com/yasinatesim/turkey-visited-map/blob/master/LICENSE) for more information.
 
