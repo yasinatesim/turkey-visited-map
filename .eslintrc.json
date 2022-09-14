@@ -1,5 +1,5 @@
 {
-  "extends": ["next", "prettier"],
+  "extends": ["eslint:recommended", "next", "prettier"],
   "plugins": ["simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": "error",
