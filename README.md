@@ -42,6 +42,10 @@ This project is a mark visited places app for Turkey map. I developed this tool 
     <td>Send commit messages to <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a> rules</td>
   </tr>
   <tr>
+    <td><a href="https://www.typescriptlang.org/">TypeScript</a></td>
+    <td>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</td>
+  </tr>
+  <tr>
     <td><a href="https://sass-lang.com/">SASS</a></td>
     <td>The most mature, stable, and powerful professional grade CSS extension language in the world</td>
   </tr>
