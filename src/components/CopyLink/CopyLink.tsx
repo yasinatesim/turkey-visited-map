@@ -11,7 +11,7 @@ const CopyLink = () => {
   const { copyToClipboard } = useCopyToClipboard();
 
   const handleCopyClick = () => {
-    copyToClipboard(`${window.location.href}/collection/${activeCities.join(',')}`);
+    copyToClipboard(`${window.location.href}collection/${activeCities.join(',')}`);
   };
 
   return (
