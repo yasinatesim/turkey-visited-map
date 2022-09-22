@@ -11,3 +11,11 @@
     max-width: 1140px;
   }
 }
+
+.github-corner {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
