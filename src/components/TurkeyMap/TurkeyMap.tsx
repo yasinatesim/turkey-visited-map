@@ -82,7 +82,7 @@ const TurkeyMap: React.ForwardRefExoticComponent<React.PropsWithoutRef<Props> & 
           {/* city count */}
           {activeCities && activeCities.length > 0 && (
             <div className={styles.cityCount}>
-              <span>Toplan gezilen il sayısı: {activeCities.length}</span>
+              <span>Toplam gezilen il sayısı: {activeCities.length}</span>
             </div>
           )}
 
