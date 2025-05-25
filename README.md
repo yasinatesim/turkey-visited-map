@@ -11,7 +11,7 @@ Turkey Visited Map
 <p  align="center">This project is a mark visited places app for Turkey</p>
 
   <p align="center">
-· <a  href="https://turkey-visited-map.yasinatesim.vercel.app/">View Demo</a>
+· <a  href="https://turkey-visited-map.onrender.com">View Demo</a>
   </p>
 
 ## 📖 About
